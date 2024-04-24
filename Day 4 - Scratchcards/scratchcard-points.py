@@ -52,9 +52,8 @@ def get_scratchcard_points():
             if number in winning_numbers:
                 matches_per_round += 1 
         scratchcard_points += int(math.pow(2, matches_per_round - 1))
-    doc.close()
+    print(f"Total scratchcard points: {scratchcard_points}")
     return scratchcard_points
-get_scratchcard_points()
 
 """
 There's no such thing as "points". Instead, scratchcards only cause you to win more scratchcards equal to the number of winning numbers you have.
@@ -143,6 +142,7 @@ def get_total_scratchcards():
     for cards in original_scratchcards.values():
         number_of_scratchcards += cards
     
+    print(f"Total number of scratchcards: {number_of_scratchcards}")
     return number_of_scratchcards
     
 # Auxiliary function - recursively goes through each card
@@ -155,5 +155,5 @@ def magic_filter_function(card_number, memoize_scratchcards, original_scratchcar
         original_scratchcard[card_copy] += 1
         magic_filter_function(card_copy, memoize_scratchcards, original_scratchcard)
 
-if __name__ == "__main__":
-    get_total_scratchcards()
+get_scratchcard_points()
+get_total_scratchcards()
